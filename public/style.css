@@ -1,0 +1,107 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body {
+    background: #16181e;
+    font-family: sans-serif;
+    color: white;
+}
+body div.mg-root {
+    padding: 20px 0;
+}
+body div.mg-container {
+    display: block;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 1000px;
+}
+body div.mg-logo {
+    margin: 0 0 20px 0;
+}
+body div.mg-logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+body div.mg-logo span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px;
+    border-left: 1px solid rgba(255,255,255,0.1);
+    margin-left: 30px;
+    padding-left: 30px;
+    font-size: 17px;
+    letter-spacing: 4px;
+}
+body div.mg-description {
+    background: #202029;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+    border-radius: 4px;
+    padding: 30px 40px;
+}
+body div.mg-description div.mg-title {
+    font-size: 24px;
+    margin: 0 0 10px 0;
+    color: #009edc;
+}
+body div.mg-description div.mg-text {
+    font-size: 16px;
+}
+
+body div.mg-contacts {
+    display: block;
+    margin: 130px 0 0 0;
+}
+body div.mg-contacts div.mg-title {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+body div.mg-orbs {
+    display: block;
+    margin: 30px 0 0 0;
+    text-align: center;
+}
+body div.mg-orbs a.mg-orb {
+    display: inline-block;
+    vertical-align: top;
+    width: 200px;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+body div.mg-orbs a.mg-orb img {
+    display: block;
+    margin: 0 auto;
+    width: 30px;
+    padding: 10px;
+    border-radius: 6px;
+    background: #202029;
+    box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}
+body div.mg-orbs a.mg-orb span {
+    display: block;
+    font-size: 13px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    color: white;
+}
+body div.mg-orbs a.mg-orb[href]:hover {
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    body div.mg-contacts {
+        display: block;
+        margin: 50px 0 0 0;
+    }
+    body div.mg-orbs {
+        display: block;
+        margin: 40px 0 0 0;
+        text-align: center;
+    }
+    body div.mg-orbs a.mg-orb {
+        width: calc(42% - 40px);
+    }
+}
