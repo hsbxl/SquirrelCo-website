@@ -1,16 +1,32 @@
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/plain-html
+stages:
+  - Django test
+  - Flake 8 test
 
-image: busybox
+variables:
+  # Set up the Python environment
+  PYTHON_VERSION: "3.11"
+  VIRTUALENV_DIR: "venv"
+  DJANGO_SETTINGS_MODULE: "squirrelco.settings"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-pages:
-  stage: deploy
+before_script:
+  # Install dependencies
+  # Install pip if not available
+  - apt-get update && apt-get install -y python3-pip python3.11-venv
+  - python3 -m venv $VIRTUALENV_DIR
+  - source $VIRTUALENV_DIR/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+django_test:
+  stage: Django test
   script:
-    - echo "The site will be deployed to $CI_PAGES_URL"
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - python manage.py test
+    - python manage.py makemigrations
+    - python manage.py migrate
+    - python manage.py check
 
-
+flake8:
+  stage: Flake 8 test
+  script:
+    - flake8 --exclude venv --ignore=E501,F401,E402,F811,E731,F403,E722 .
