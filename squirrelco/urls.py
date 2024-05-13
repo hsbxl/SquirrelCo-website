@@ -15,10 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from .views import Index
+from django.views.generic.base import RedirectView, TemplateView
+
+favicon_view = RedirectView.as_view(url='https://squirrelco.net/squirrel-white.png', permanent=True)
 
 urlpatterns = [
     path("", Index.as_view(), name="Index"),
+    re_path(r'^favicon\.ico$', favicon_view),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('admin/', admin.site.urls),
 ]
