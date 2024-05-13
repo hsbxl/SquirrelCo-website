@@ -1,0 +1,116 @@
+#
+# robots.txt
+#
+
+#
+# Specific unwanted clients
+#
+
+User-agent: UbiCrawler
+Disallow: /
+
+User-agent: DOC
+Disallow: /
+
+User-agent: Zao
+Disallow: /
+
+User-agent: sitecheck.internetseer.com
+Disallow: /
+
+User-agent: Zealbot
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+User-agent: SiteSnagger
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Fetch
+Disallow: /
+
+User-agent: Offline Explorer
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: linko
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+User-agent: Microsoft.URL.Control
+Disallow: /
+
+User-agent: Xenu
+Disallow: /
+
+User-agent: larbin
+Disallow: /
+
+User-agent: libwww
+Disallow: /
+
+User-agent: ZyBORG
+Disallow: /
+
+User-agent: Download Ninja
+Disallow: /
+
+User-agent: grub-client
+Disallow: /
+
+User-agent: k2spider
+Disallow: /
+
+User-agent: NPBot
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: Irvine
+Disallow: /
+
+User-agent: 360Spider
+Disallow: /
+
+User-agent: bingbot
+Crawl-delay: 1
+
+#
+# Command line recursive requests as well as automated fetching from the non-
+# exportable data is not acceptable.
+#
+
+User-agent: wget
+Disallow: /account/
+
+#
+# General robot rules
+#
+User-agent: *
+Disallow: /account/
+
+
+User-agent: Cliqzbot
+Disallow: /
+
+# Stop OpenAI/ChatGPT from training on our data
+User-agent: GPTBot
+Disallow: /
