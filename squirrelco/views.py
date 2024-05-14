@@ -10,6 +10,10 @@ class Peering(TemplateView):
     template_name = 'peering.html'
 
 
+class Sponsors(TemplateView):
+    template_name = 'sponsors.html'
+
+
 def handler404(request):
     return render(request, '404.html', status=404)
 
