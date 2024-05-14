@@ -19,7 +19,7 @@ from django.urls import path, re_path
 from .views import Index
 from django.views.generic.base import RedirectView, TemplateView
 
-favicon_view = RedirectView.as_view(url='https://squirrelco.net/squirrel-white.png', permanent=True)
+favicon_view = RedirectView.as_view(url='https://static.squirrelco.net/images/squirrel-white.png', permanent=True)
 
 urlpatterns = [
     path("", Index.as_view(), name="index"),
