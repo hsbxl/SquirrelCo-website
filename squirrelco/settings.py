@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'squirrelco',
     'compressor',
+    'dns.apps.DnsConfig',
+    'phones.apps.PhonesConfig',
+    'giveaway.apps.GiveawayConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
