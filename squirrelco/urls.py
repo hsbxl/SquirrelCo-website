@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from .views import Index
+from .views import Index, Peering
 from django.views.generic.base import RedirectView, TemplateView
 
 favicon_view = RedirectView.as_view(url='https://static.squirrelco.net/images/squirrel-white.png', permanent=True)
 
 urlpatterns = [
     path("", Index.as_view(), name="index"),
+    path("peering.html", Peering.as_view(), name="peering"),
     re_path(r'^favicon\.ico$', favicon_view),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('admin/', admin.site.urls),

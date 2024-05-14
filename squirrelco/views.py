@@ -5,6 +5,9 @@ from django.views.generic import TemplateView
 class Index(TemplateView):
     template_name = 'index.html'
 
+class Peering(TemplateView):
+    template_name = 'peering.html'
+
 
 def handler404(request):
     return render(request, '404.html', status=404)
