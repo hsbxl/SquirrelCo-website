@@ -22,7 +22,7 @@ from django.views.generic.base import RedirectView, TemplateView
 favicon_view = RedirectView.as_view(url='https://squirrelco.net/squirrel-white.png', permanent=True)
 
 urlpatterns = [
-    path("", Index.as_view(), name="Index"),
+    path("", Index.as_view(), name="index"),
     re_path(r'^favicon\.ico$', favicon_view),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('admin/', admin.site.urls),
