@@ -14,6 +14,10 @@ class Sponsors(TemplateView):
     template_name = 'sponsors.html'
 
 
+class Squirrel(TemplateView):
+    template_name = 'squirrel.html'
+
+
 def handler404(request):
     return render(request, '404.html', status=404)
 
