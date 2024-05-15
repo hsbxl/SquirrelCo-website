@@ -19,6 +19,7 @@ from django.urls import path, re_path
 from .views import Index, Peering, Sponsors, Squirrel
 from resources.views import Devicelist
 from giveaway.views import GiveawayList
+from phones.views import Phone
 from django.views.generic.base import RedirectView, TemplateView
 
 favicon_view = RedirectView.as_view(url='https://static.squirrelco.net/images/squirrel-white.png', permanent=True)
@@ -30,6 +31,7 @@ urlpatterns = [
     path("squirrel.html", Squirrel.as_view(), name="squirrel"),
     path("resources.html", Devicelist.as_view(), name="resources"),
     path("giveaway.html", GiveawayList.as_view(), name="giveaway"),
+    path("phone.html", Phone.as_view(), name="phone"),
     re_path(r'^favicon\.ico$', favicon_view),
     path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('admin/', admin.site.urls),
