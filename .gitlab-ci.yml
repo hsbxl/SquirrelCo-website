@@ -1,7 +1,7 @@
 stages:
   - Django test
   - Flake 8 test
-  - Static Files
+  - Pages
   - Deploy
 
 variables:
@@ -34,7 +34,7 @@ flake8:
   script:
     - flake8 --exclude venv --ignore=E501,F401,E402,F811,E731,F403,E722 .
 
-static_files:
+pages:
   stage: deploy
   script:
     - echo "The site will be deployed to $CI_PAGES_URL"
@@ -43,8 +43,6 @@ static_files:
       - staticfiles
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRAN
-  only:
-    - master
 
 deploy:
   stage: Deploy
