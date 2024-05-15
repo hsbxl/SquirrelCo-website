@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,12 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*_&#_+$kbtcui=um^e-@*3*1uznn!u)=wt6kk&@qnfhw8j5moj'
+SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config.ALLOWED_HOSTS
+
+CSRF_TRUSTED_ORIGINS = config.CSRF_TRUSTED_ORIGINS
 
 # Application definition
 
@@ -76,12 +79,24 @@ WSGI_APPLICATION = 'squirrelco.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG is True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": ("django.db.backends.postgresql"),
+            "NAME": ("squirrelco-db"),
+            "USER": (config.DBUSER),
+            "PASSWORD": (config.DBPASSWORD),
+            "HOST": ("db"),
+            "PORT": ("5432"),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -117,7 +132,7 @@ COMPRESS_ENABLED = True
 if DEBUG is True:
     STATIC_URL = "static/"
 else:
-    STATIC_URL = 'https://static.skyscreen.aero/'
+    STATIC_URL = 'https://static.squirrelco.net/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
