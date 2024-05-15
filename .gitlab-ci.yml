@@ -13,7 +13,7 @@ before_script:
   # Install dependencies
   # Install pip if not available
   - apt-get update && apt-get install -y python3-pip python3.11-venv
-  - cp config.py.example config.py
+  - cp config.example.py config.py
   - python3 -m venv $VIRTUALENV_DIR
   - source $VIRTUALENV_DIR/bin/activate
   - pip install --upgrade pip
