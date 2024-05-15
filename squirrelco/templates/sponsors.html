@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Our Lovely Sponsors
+{% endblock %}
+
+{% block content %}
+<div class="md:container md:mx-auto flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mx-0 md:my-8">
+        <a href="https://www.flexoptix.net/" alt="Flexoptix Website">
+        <img src="https://www.flexoptix.net/static/version1715587895/frontend/Flexoptix/default/en_US/images/footer/logo-footer.svg" alt="Flexoptix logo">
+        </a>
+        <span class="text-gray-300 font-semibold">
+            Flexoptix is a manufacturer that makes programable optical transceivers. They provided us with SFP's and fiber optics that allowed us to create our optical loop accross the building ! Thanks to them.
+        </span>
+    </div>
+</div>
+{% endblock content %}

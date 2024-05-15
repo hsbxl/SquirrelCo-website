@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="md:container md:mx-auto flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mx-0 md:my-8">
+        <h1 class="text-4xl font-extrabold text-white">What is Squirrelco ?</h1>
+        <span class="text-gray-300 font-semibold">
+            The Hackerspace of Brussels needed a better internet connection. While looking around on how to connect ourself, we saw endless possibilities in our new building and ways to experiment with some technologies at a large scale. That's how the project got born. Before we knew it, we were working with automation, BGP, various tunneling protocols, long range WiFi, Fiber of various types, DNS, Telephones... First for us, but then it got larger and we started playing with other hackerspaces...
+        </span><br><br>
+        <h1 class="text-4xl font-extrabold text-white">Why is this a big deal ?</h1>
+        <span class="text-gray-300 font-semibold">
+            Most of the people that help us are working in the industry. This brings a lot of experience to the table and allow us to learn from the experience of others. We like to be as transparent as possible and to include interested people in the project. We are all in to learn and expand possibilities for everyone in a neutral and innovative way.
+        </span><br><br>
+    </div>
+    <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+        <img src="{% static 'images/sfpbox.jpeg' %}" alt="Picture of 3D printed SFP Box with fiber documentation plates behind it">
+    </div>
+</div>
+{% endblock content %}

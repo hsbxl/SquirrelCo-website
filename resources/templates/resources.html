@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Resources
+{% endblock %}
+
+{% block content %}
+    <div class="md:container md:mx-auto flex flex-col md:flex-row space-x-4">
+        <div class="md:w-1/2 md:mx-0 md:my-8">
+            <h1 class="text-4xl font-extrabold text-white">These are our current devices</h1>
+            {% if wasExecuted %}<span class="text-green-500">This is the latest Data</span>{% else %}
+                <span class="text-red-500">This is old Data</span>{% endif %}
+
+            <table class="w-full text-sm text-left rtl:text-right text-gray-400">
+                <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">Device</th>
+                    <th scope="col" class="px-6 py-3">Manufacturer</th>
+                    <th scope="col" class="px-6 py-3">Room</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for DEVICE in devices %}
+                    <tr class="border-b bg-gray-800 border-gray-700">
+                        <td class="px-6 py-4">{{ DEVICE.model }}</td>
+                        <td class="px-6 py-4">{{ DEVICE.manufacturer }}</td>
+                        <td class="px-6 py-4">{{ DEVICE.room }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+            <img src="https://librenms.squirrelco.net/plugins/Weathermap/output/squirrelco.png"
+                 alt="Weathermap. If you have IPv6 :)">
+        </div>
+    </div>
+{% endblock content %}
