@@ -11,17 +11,20 @@ def netboxdata():
     current = False
     dcim = "devices"
     apiUrl = "https://netbox.squirrelco.net/api/dcim/"
-    auth_header = {'Authorization': f'Token {config.NETBOXAPI}'}
-    response = requests.get(apiUrl + f"{dcim}", headers=auth_header)
-    if response.status_code == 200:
-        data = response.json()
-        current = True
-        CurrentGear.objects.all().delete()
-        for entry in data["results"]:
-            if entry["device_type"]["manufacturer"]["name"] != "Generic":
-                if entry["tenant"]["name"] == "HSBXL":
-                    if entry["status"]["value"] == "active":
-                        writecurrentgear(entry)
+    try:
+        auth_header = {'Authorization': f'Token {config.NETBOXAPI}'}
+        response = requests.get(apiUrl + f"{dcim}", headers=auth_header)
+        if response.status_code == 200:
+            data = response.json()
+            current = True
+            CurrentGear.objects.all().delete()
+            for entry in data["results"]:
+                if entry["device_type"]["manufacturer"]["name"] != "Generic":
+                    if entry["tenant"]["name"] == "HSBXL":
+                        if entry["status"]["value"] == "active":
+                            writecurrentgear(entry)
+    except:
+        print("server was unreachable")
     return current
 
 

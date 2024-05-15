@@ -13,16 +13,19 @@ def netboxdata():
     dcim = "devices"
     apiUrl = "https://netbox.squirrelco.net/api/dcim/"
     auth_header = {'Authorization': f'Token {config.NETBOXAPI}'}
-    response = requests.get(apiUrl + f"{dcim}", headers=auth_header)
-    if response.status_code == 200:
-        data = response.json()
-        current = True
-        Giveawaygear.objects.all().delete()
-        for entry in data["results"]:
-            if entry["device_type"]["manufacturer"]["name"] != "Generic":
-                if entry["tenant"]["name"] == "HSBXL":
-                    if entry["comments"] == "donnation":
-                        writegiveaway(entry)
+    try:
+        response = requests.get(apiUrl + f"{dcim}", headers=auth_header)
+        if response.status_code == 200:
+            data = response.json()
+            current = True
+            Giveawaygear.objects.all().delete()
+            for entry in data["results"]:
+                if entry["device_type"]["manufacturer"]["name"] != "Generic":
+                    if entry["tenant"]["name"] == "HSBXL":
+                        if entry["comments"] == "donnation":
+                            writegiveaway(entry)
+    except:
+        print("Server unreachable")
     return current
 
 
