@@ -1,7 +1,7 @@
 stages:
   - Django test
   - Flake 8 test
-  - Pages
+  - Static Files
   - Deploy
 
 variables:
@@ -35,7 +35,7 @@ flake8:
     - flake8 --exclude venv --ignore=E501,F401,E402,F811,E731,F403,E722 .
 
 pages:
-  stage: deploy
+  stage: Static Files
   script:
     - echo "The site will be deployed to $CI_PAGES_URL"
   artifacts:
