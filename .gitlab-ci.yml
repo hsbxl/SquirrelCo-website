@@ -1,6 +1,8 @@
 stages:
   - Django test
   - Flake 8 test
+  - Static Files
+  - Deploy
 
 variables:
   # Set up the Python environment
@@ -31,3 +33,28 @@ flake8:
   stage: Flake 8 test
   script:
     - flake8 --exclude venv --ignore=E501,F401,E402,F811,E731,F403,E722 .
+
+static_files:
+  stage: deploy
+  script:
+    - echo "The site will be deployed to $CI_PAGES_URL"
+  artifacts:
+    paths:
+      - staticfiles
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRAN
+  only:
+    - master
+
+deploy:
+  stage: Deploy
+  script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SSH_USER@$SSH_HOST "cd /path/to/your/project && git pull origin master && docker-compose down && docker-compose up --build -d"
+  only:
+    - master
