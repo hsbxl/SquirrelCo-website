@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+The Squirrel
+{% endblock %}
+
+{% block content %}
+<div class="md:container md:mx-auto flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mx-0 md:my-8">
+        <img src="{% static 'images/squirrel-white.png' %}" alt="Picture of 3D printed SFP Box with fiber documentation plates behind it">
+    </div>
+    <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+        <h1 class="text-4xl font-extrabold text-white">What's up with the Squirrel ?</h1>
+        <span class="text-gray-300 font-semibold">Once upon a time, there was a hacker camp. Internet was working fine until a rodent ate a fiber cable. Said rodent became the most hated creature in a 10km radius. The NOC called for an illustration about a "cute" rodent. Turns out, Anita Niskala (a member of our hackerspace) thought that she was not going to make it cute. She was going to make it an evil squirrel.<br><br>Up to this day, this squirrel is printed on the DWDM boxes used at the camp. It's also a known easter egg for who knows where to look.
+        </span>
+        <img src="{% static 'images/dwdm-box.jpeg' %}" alt="DWDM box of the camp. Currently being property of Eventinfra">
+    </div>
+</div>
+{% endblock content %}

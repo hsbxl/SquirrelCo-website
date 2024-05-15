@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Resources
+{% endblock %}
+
+{% block content %}
+    <div class="md:container md:mx-auto flex flex-col md:flex-row space-x-4">
+        <div class="md:w-1/2 md:mx-0 md:my-8">
+            <img src="{% static 'images/phone.jpeg' %}"
+                 alt="Picture of a Cisco 7940 Telephone">
+        </div>
+        <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+            <h1 class="text-4xl font-extrabold text-white">Phone System : </h1>
+            <span class="text-gray-300 font-semibold">
+                Currently, we have 2 Cisco 7940's, 3 Cisco 7942's and a Gigaset DECT.
+                All of them are uplinked through our network on a Fritzbox that serves as PBX.
+                <br><br>
+                We are present on the public Phone system at +32 2 880 40 04, but also on <a
+                    href="https://eventphone.de/doku/epvpn" class="underline text-blue-500">EPVPN</a> at the Extension 1070
+                <br>
+                You could contact us straight through that <a href="https://eventphone.de/doku/epvpn"
+                                                              class="underline text-blue-500">EPVPN</a> if you connect to it ;) At some point, we will rebuild that voice system to an asterisk and probably replicate a EPVPN with Belgian number hosting for hackerspaces. Maybe...
+        </span>
+        </div>
+    </div>
+{% endblock content %}

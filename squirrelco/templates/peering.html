@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+Peering Policy
+{% endblock %}
+
+{% block content %}
+<div class="md:container md:mx-auto flex flex-col md:flex-row">
+    <div class="md:w-1/2 md:mx-0 md:my-8">
+        <h1 class="text-4xl font-extrabold text-white">Peering : It is Open !</h1>
+        <span class="text-gray-300 font-semibold">
+            If it is possible in any location, let's peer !
+            We might be present on some IXP's at some point (we will keep the
+            <a href="https://www.peeringdb.com/net/21285" alt="Peering DB Page">PeeringDB</a> up to date). When that
+            happens,
+            Sure !
+            We might also operate a local POP at hacker camps or congress (MCH2022 had an IXP on site). We are happy to hear
+            from you !
+        </span>
+    </div>
+    <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+        <h1 class="text-4xl font-extrabold text-white md:text-left">Transit :</h1>
+        <span class="text-gray-300 font-semibold">
+            At this point, we can't provide you a full-view. We also can't transit you in IPv4. But then again, you can
+            always
+            reach out through Matrix to ask us what is possible. Possibilities will be limited, but they can still
+            exist.
+        </span>
+    </div>
+</div>
+{% endblock content %}
