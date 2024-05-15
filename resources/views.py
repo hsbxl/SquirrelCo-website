@@ -42,11 +42,3 @@ class Devicelist(ListView):
         context = super().get_context_data(**kwargs)
         context["wasExecuted"] = netbox
         return context
-
-
-def devices(request):
-    """
-    Creates the view on the template
-    """
-
-    return HttpResponse(str(netboxdata()))
