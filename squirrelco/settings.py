@@ -133,7 +133,7 @@ if DEBUG is True:
     STATIC_URL = "static/"
 else:
     STATIC_URL = 'https://static.squirrelco.net/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "public"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

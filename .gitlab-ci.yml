@@ -1,2 +1,58 @@
-# The Docker image that will be used to build your app
-image: pages
+stages:
+  - Django test
+  - Flake 8 test
+  - Static Files
+  - Deploy
+
+variables:
+  # Set up the Python environment
+  PYTHON_VERSION: "3.11"
+  VIRTUALENV_DIR: "venv"
+  DJANGO_SETTINGS_MODULE: "squirrelco.settings"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+before_script:
+  # Install dependencies
+  # Install pip if not available
+  - apt-get update && apt-get install -y python3-pip python3.11-venv
+  - cp config.example.py config.py
+  - python3 -m venv $VIRTUALENV_DIR
+  - source $VIRTUALENV_DIR/bin/activate
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+django_test:
+  stage: Django test
+  script:
+    - python manage.py test
+    - python manage.py makemigrations
+    - python manage.py migrate
+    - python manage.py check
+
+flake8:
+  stage: Flake 8 test
+  script:
+    - flake8 --exclude venv --ignore=E501,F401,E402,F811,E731,F403,E722 .
+
+pages:
+  stage: Static Files
+  script:
+    - echo "The site will be deployed to $CI_PAGES_URL"
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+
+deploy:
+  stage: Deploy
+  script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - ssh -o StrictHostKeyChecking=no -p 22 $SSH_USER@$SSH_HOST "cd /home/squirrelco/squirrelco && git checkout master && git pull origin master && docker-compose down && docker-compose up --build -d"
+  only:
+    - master
