@@ -1,3 +1,14 @@
+networks:
+  public:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: "2a01:4f8:1c1b:7011:8000::/65"
+  private:
+    driver: bridge
+
 services:
   web:
     build:
@@ -22,14 +33,3 @@ services:
 
 volumes:
   postgres_data:
-
-networks:
-  public:
-    driver: bridge
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: "2a01:4f8:1c1b:7011:8000::/65"
-  private:
-    driver: bridge
