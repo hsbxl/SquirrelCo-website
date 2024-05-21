@@ -1,12 +1,3 @@
-networks:
-  mynetwork:
-    driver: bridge
-    enable_ipv6: true
-    ipam:
-      driver: default
-      config:
-        - subnet: "2a01:4f8:1c1b:7011:8000::/65"
-
 services:
   web:
     build:
@@ -14,15 +5,28 @@ services:
       dockerfile: Dockerfile
     command: gunicorn squirrelco.wsgi:application -b 0.0.0.0:8000 --timeout 600
     ports:
-      - "127.0.0.1:8001:8000"
+      - "127.0.0.1:8001:8000"  # Only expose web service to localhost
     depends_on:
       - db
+    networks:
+      - squirrelnet
+
   db:
     image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
       - env.prod.db
+    networks:
+      - squirrelnet
+
 volumes:
   postgres_data:
 
+networks:
+  squirrelnet:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: "2a01:4f8:1c1b:7011:8000::/65"
