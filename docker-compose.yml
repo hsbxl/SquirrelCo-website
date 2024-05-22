@@ -29,4 +29,4 @@ networks:
     enable_ipv6: true
     ipam:
       config:
-        - subnet: "2a01:4f8:1c1b:7011:8000::/65"
+        - subnet: "2a01:4f8:1c1b:7011::1:0/112"
