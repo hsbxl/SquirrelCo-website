@@ -13,6 +13,8 @@ class Peering(TemplateView):
 class Sponsors(TemplateView):
     template_name = 'sponsors.html'
 
+class Oid(TemplateView):
+    template_name = 'oid.html'
 
 class Squirrel(TemplateView):
     template_name = 'squirrel.html'
