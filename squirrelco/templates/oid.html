@@ -2,52 +2,57 @@
 {% load static %}
 
 {% block title %}
-IANA - HSBXL OIDs
+    IANA - HSBXL OIDs
 {% endblock %}
 
 {% block content %}
 
-<div class="md:container md:mx-auto flex flex-col md:flex-row">
-    <div class="md:w-1/2 md:mx-0 md:my-8">
-        <img src="{% static 'images/squirrel-white.png' %}" alt="Picture of 3D printed SFP Box with fiber documentation plates behind it">
-    </div>
-    <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start">
+    <div class="md:container md:mx-auto flex flex-col md:flex-row">
+        <div class="md:w-1/2 md:mx-0 md:my-8">
+            <img src="{% static 'images/iana-logo-homepage.svg' %}"
+                 alt="Picture of 3D printed SFP Box with fiber documentation plates behind it">
+        </div>
+        <div class="md:w-1/2 md:mx-0 md:my-8 flex flex-col justify-start text-gray-400">
 
-<h1>HSBXL OIDs</h1>
+            <h1 class="text-6xl font-extrabold text-white">HSBXL OIDs</h1>
 
-<p>/!\ This page will need some rework.</p>
-<p>Is there a way to automatically generate a MIB using a YAML file ?</p>
-<h1 id="penoid">PEN/OID</h1>
-<p>We have the following PEN from IANA: 1.3.6.1.4.1.43666.</p>
-<p>This is based on previous work by TQ_Hirsh</p>
-<h2 id="136141436661-experimental">1.3.6.1.4.1.43666.1 (EXPERIMENTAL)</h2>
-<h2 id="136141436662-ldap">1.3.6.1.4.1.43666.2 (LDAP)</h2>
-<h3 id="1361414366621-ldap-attribute-type">1.3.6.1.4.1.43666.2.1 (LDAP Attribute type)</h3>
-<ol>
-<li>x-hsbxl-pgpKey - PGP public key used for encrypted communications</li>
-<li>x-hsbxl-sponsorID - Sponsoring member</li>
-<li>x-hsbxl-membershipReason - Why you&rsquo;re becoming a member</li>
-<li>x-hsbxl-sshPubKey - SSH public key</li>
-</ol>
-<p>The following entries might be included in the definitive user schema</p>
-<ol>
-<li>x-hsbxl-membershipStructuredComm - Structured communication for
-membership payments</li>
-<li>x-hsbxl-membershipAccountId - Internal identifier for membership
-account</li>
-<li>x-hsbxl-drinksStructuredcomm - Structured communication for drink
-account</li>
-<li>x-hsbxl-drinksAccountId - Internal identifier for fridge account</li>
-<li>x-hsbxl-RFID-id - Access control token ID</li>
-</ol>
-<h3 id="1361414366622-ldap-object-class">1.3.6.1.4.1.43666.2.2 (LDAP Object class)</h3>
-<h2 id="136141436663-snmp">1.3.6.1.4.1.43666.3 (SNMP)</h2>
-<p>(todo)</p>
-<h2 id="136141436664-member-defined-objects">1.3.6.1.4.1.43666.4 (Member-defined objects)</h2>
-<p>This arc is reserved for HSBXL member-defined attributes. To use it, get
-your uidNumber from our LDAP database, and append it to this OID.
-Anything defined below the resulting OID is up to you.</p>
-<pre><code>Example:
+            <h1 class="text-3xl font-extrabold text-white" id="penoid">PEN/OID</h1>
+            <p>We have the following PEN from IANA: 1.3.6.1.4.1.43666.</p>
+            <p>This is based on previous work by TQ_Hirsh</p><br>
+            <h2 class="text-2xl font-extrabold text-white" id="136141436661-experimental">1.3.6.1.4.1.43666.1 (EXPERIMENTAL)</h2>
+            <h2 class="text-2xl font-extrabold text-white" id="136141436662-ldap">1.3.6.1.4.1.43666.2 (LDAP)</h2>
+            <h3 class="text-2xl font-extrabold text-white" id="1361414366621-ldap-attribute-type">1.3.6.1.4.1.43666.2.1 (LDAP
+                Attribute type)</h3>
+            <ol>
+                <li>x-hsbxl-pgpKey - PGP public key used for encrypted communications</li>
+                <li>x-hsbxl-sponsorID - Sponsoring member</li>
+                <li>x-hsbxl-membershipReason - Why you&rsquo;re becoming a member</li>
+                <li>x-hsbxl-sshPubKey - SSH public key</li>
+            </ol>
+            <p class="text-xl font-extrabold text-white">The following entries might be included in the definitive user schema</p>
+            <ol>
+                <li>x-hsbxl-membershipStructuredComm - Structured communication for
+                    membership payments
+                </li>
+                <li>x-hsbxl-membershipAccountId - Internal identifier for membership
+                    account
+                </li>
+                <li>x-hsbxl-drinksStructuredcomm - Structured communication for drink
+                    account
+                </li>
+                <li>x-hsbxl-drinksAccountId - Internal identifier for fridge account</li>
+                <li>x-hsbxl-RFID-id - Access control token ID</li>
+            </ol>
+            <h3 class="text-xl font-extrabold text-white" id="1361414366622-ldap-object-class">1.3.6.1.4.1.43666.2.2 (LDAP Object
+                class)</h3>
+            <h2 class="text-2xl font-extrabold text-white" id="136141436663-snmp">1.3.6.1.4.1.43666.3 (SNMP)</h2>
+            <p>(todo)</p>
+            <h2 class="text-2xl font-extrabold text-white" id="136141436664-member-defined-objects">1.3.6.1.4.1.43666.4
+                (Member-defined objects)</h2>
+            <p>This arc is reserved for HSBXL member-defined attributes. To use it, get
+                your uidNumber from our LDAP database, and append it to this OID.
+                Anything defined below the resulting OID is up to you.</p>
+            <pre><code>Example:
 
 Your LDAP uidNumber is 4242. Your personal arc will then be 1.3.6.1.4.1.43666.4.4242.
 
@@ -57,7 +62,7 @@ Your 1.3.6.1.4.1.43666.4.4242 arc can then be subdivided as you like:
  1.3.6.1.4.1.43666.4.4242.3 (arc baz)
 </code></pre>
 
+        </div>
     </div>
-</div>
 {% endblock content %}
 
