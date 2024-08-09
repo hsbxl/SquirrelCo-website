@@ -3,7 +3,7 @@ build==1.2.1
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
-Django==5.0.7
+Django==5.0.8
 django-appconf==1.0.6
 django-compressor==4.4
 flake8==7.0.0
