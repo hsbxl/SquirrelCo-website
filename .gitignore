@@ -137,6 +137,10 @@ GitHub.sublime-settings
 !.vscode/extensions.json
 .history
 
+# Fruit-OS stuff #
+.DS_Store
+
+
 venv
 ve3
 /config.py
