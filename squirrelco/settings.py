@@ -34,7 +34,6 @@ CSRF_TRUSTED_ORIGINS = config.CSRF_TRUSTED_ORIGINS
 INSTALLED_APPS = [
     'squirrelco',
     'compressor',
-    'dns.apps.DnsConfig',
     'phones.apps.PhonesConfig',
     'giveaway.apps.GiveawayConfig',
     'resources.apps.ResourcesConfig',
