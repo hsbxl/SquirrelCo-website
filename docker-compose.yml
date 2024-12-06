@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     command: gunicorn squirrelco.wsgi:application -b 0.0.0.0:8000 --timeout 600
     ports:
-      - "127.0.0.1:8001:8000"  # Only expose web service to localhost
+      - "127.0.0.1:8002:8000"  # Only expose web service to localhost
     depends_on:
       - db
     networks:
