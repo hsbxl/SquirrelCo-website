@@ -16,8 +16,10 @@ psycopg2-binary==2.9.10
 pycodestyle==2.12.1
 pyflakes==3.2.0
 pyproject_hooks==1.2.0
+rcssmin==1.1.2
 requests==2.32.3
-setuptools==75.6.0
+rjsmin==1.2.2
+setuptools==77.0.1
 sqlparse==0.5.2
 tomli==2.2.1
 urllib3==2.2.3
