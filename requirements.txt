@@ -55,6 +55,8 @@ packaging==24.2
     #   wheel
 pip-tools==7.5.3
     # via -r requirements.in
+psycopg==3.3.2
+    # via -r requirements.in
 pycodestyle==2.12.1
     # via
     #   -r requirements.in
