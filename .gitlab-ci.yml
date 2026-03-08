@@ -1,3 +1,5 @@
+image: python:3.14
+
 stages:
   - Django test
   - Flake 8 test
@@ -14,9 +16,9 @@ variables:
 before_script:
   # Install dependencies
   # Install pip if not available
-  - apt-get update && apt-get install -y python3-pip python3.14-full
+  - apt-get update && apt-get install -y python3-pip python3.14-venv
   - cp config.example.py config.py
-  - python3 -p python3.14 -m venv $VIRTUALENV_DIR
+  - python3 -m venv $VIRTUALENV_DIR
   - source $VIRTUALENV_DIR/bin/activate
   - pip install --upgrade pip
   - pip install -r requirements.txt
