@@ -4,42 +4,42 @@
 #
 #    pip-compile --output-file=requirements.txt requirements.in
 #
-asgiref==3.8.1
+asgiref==3.11.1
     # via
     #   -r requirements.in
     #   django
-build==1.2.2.post1
+build==1.4.0
     # via
     #   -r requirements.in
     #   pip-tools
-certifi==2024.8.30
+certifi==2026.2.25
     # via
     #   -r requirements.in
     #   requests
-charset-normalizer==3.4.0
+charset-normalizer==3.4.5
     # via
     #   -r requirements.in
     #   requests
-click==8.1.7
+click==8.3.1
     # via
     #   -r requirements.in
     #   pip-tools
-django==5.1.15
+django==6.0.3
     # via
     #   -r requirements.in
     #   django-appconf
     #   django-compressor
-django-appconf==1.0.6
+django-appconf==1.2.0
     # via
     #   -r requirements.in
     #   django-compressor
-django-compressor==4.5.1
+django-compressor==4.6.0
     # via -r requirements.in
-flake8==7.1.1
+flake8==7.3.0
     # via -r requirements.in
-gunicorn==23.0.0
+gunicorn==25.1.0
     # via -r requirements.in
-idna==3.10
+idna==3.11
     # via
     #   -r requirements.in
     #   requests
@@ -47,7 +47,7 @@ mccabe==0.7.0
     # via
     #   -r requirements.in
     #   flake8
-packaging==24.2
+packaging==26.0
     # via
     #   -r requirements.in
     #   build
@@ -55,13 +55,13 @@ packaging==24.2
     #   wheel
 pip-tools==7.5.3
     # via -r requirements.in
-psycopg==3.3.2
+psycopg==3.3.3
     # via -r requirements.in
-pycodestyle==2.12.1
+pycodestyle==2.14.0
     # via
     #   -r requirements.in
     #   flake8
-pyflakes==3.2.0
+pyflakes==3.4.0
     # via
     #   -r requirements.in
     #   flake8
@@ -70,21 +70,21 @@ pyproject-hooks==1.2.0
     #   -r requirements.in
     #   build
     #   pip-tools
-rcssmin==1.1.2
+rcssmin==1.2.2
     # via
     #   -r requirements.in
     #   django-compressor
-requests==2.32.4
+requests==2.32.5
     # via -r requirements.in
-rjsmin==1.2.2
+rjsmin==1.2.5
     # via
     #   -r requirements.in
     #   django-compressor
-sqlparse==0.5.2
+sqlparse==0.5.5
     # via
     #   -r requirements.in
     #   django
-tomli==2.2.1
+tomli==2.4.0
     # via -r requirements.in
 urllib3==2.6.3
     # via
